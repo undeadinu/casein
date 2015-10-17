@@ -67,7 +67,9 @@ module Casein
     end
 
     def sort_order(default)
-      "#{(params[:c] || default.to_s).gsub(/[\s;'\"]/,'')} #{'ASC' if params[:d] == 'up'} #{'DESC' if params[:d] == 'down'}"
+      column = (params[:c] || default.to_s).gsub(/[\s;'\"]/,'')
+      direction = params[:d] == 'down' ? 'DESC' : 'ASC'
+      {column => direction}
     end
 
   end
