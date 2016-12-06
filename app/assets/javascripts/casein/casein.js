@@ -4,7 +4,7 @@
 
 jQuery(document).ready(function() {
 
-	if (current_controller) {
+	if ("current_controller" in window) {
 		active_tab = $("#tab-" + current_controller);
 		if (active_tab) {
 			active_tab.addClass("active");
