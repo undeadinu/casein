@@ -1,8 +1,8 @@
 module Casein
   class AdminUserSessionsController < Casein::CaseinController
     
-    skip_before_filter :authorise, only: [:new, :create]
-    before_filter :requires_no_session_user, except: [:destroy]
+    skip_before_action :authorise, only: [:new, :create]
+    before_action :requires_no_session_user, except: [:destroy]
   
     layout 'casein_auth'
   

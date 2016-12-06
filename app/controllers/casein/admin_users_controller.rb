@@ -3,8 +3,8 @@ require 'securerandom'
 module Casein
   class AdminUsersController < Casein::CaseinController
 
-    before_filter :needs_admin, except: [:show, :destroy, :update, :update_password]
-    before_filter :needs_admin_or_current_user, only: [:show, :destroy, :update, :update_password]
+    before_action :needs_admin, except: [:show, :destroy, :update, :update_password]
+    before_action :needs_admin_or_current_user, only: [:show, :destroy, :update, :update_password]
  
     def index
       @casein_page_title = "Users"
