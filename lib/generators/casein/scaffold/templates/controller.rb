@@ -58,7 +58,7 @@ module Casein
     private
 <%
         permit_list = ""
-        attributes.each_with_index {|attribute|
+        attributes.each_with_index { |attribute|
           permit_list += ", " unless permit_list.empty?
           permit_list += ":#{attribute.name}"
         }

@@ -140,7 +140,7 @@ describe Casein::CaseinHelper, type: :helper do
 
     describe "#casein_number_field" do
       it "builds an html5 number field" do
-        field = helper.casein_number_field(builder, obj, 'my_number', {in: 1.0..20.0, step: 0.5})
+        field = helper.casein_number_field(builder, obj, 'my_number', { in: 1.0..20.0, step: 0.5 })
         expect(field).to have_css('.form-group .well input#test_model_my_number[step="0.5"]')
         expect(field).to have_css('.form-group label.control-label', "My Number")
         expect(field).to have_css('.form-group .well input.form-control')
@@ -149,7 +149,7 @@ describe Casein::CaseinHelper, type: :helper do
 
     describe "#casein_range_field" do
       it "builds an html5 range field" do
-        field = helper.casein_range_field(builder, obj, 'my_range', {in: 1.0..10.0})
+        field = helper.casein_range_field(builder, obj, 'my_range', { in: 1.0..10.0 })
         expect(field).to have_css('.form-group .well input#test_model_my_range[max="10.0"]')
         expect(field).to have_css('.form-group label.control-label', "My Range")
         expect(field).to have_css('.form-group .well input.form-control')
