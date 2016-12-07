@@ -147,7 +147,7 @@ An ERB partial for the the left navigation tabs. Note that using the scaffolding
 
 An ERB partial for adding items to the top navigation.
 
-<b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.css.scss</b>
+<b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.scss</b>
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to your Casein deployment.
 
