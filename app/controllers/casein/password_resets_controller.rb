@@ -2,12 +2,12 @@ module Casein
   class PasswordResetsController < Casein::CaseinController
   
     skip_before_filter :authorise
-    before_filter :load_user_using_perishable_token, :only => [:edit, :update]
+    before_filter :load_user_using_perishable_token, only: [:edit, :update]
 
     layout 'casein_auth'
     
     def create
-      users = Casein::AdminUser.where(:email => params[:recover_email]).all
+      users = Casein::AdminUser.where(email: params[:recover_email]).all
 
       if users.length > 0
         users.each do |user|
@@ -46,7 +46,7 @@ module Casein
         end
       end
       
-      render :action => :edit
+      render action: :edit
     end
 
   private

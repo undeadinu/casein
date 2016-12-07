@@ -5,9 +5,9 @@ module Casein
     include Rails::Generators::Migration
     source_root File.expand_path('../templates', __FILE__)
 
-    argument :attributes, :type => :array, :required => true, :desc => "attribute list required"
+    argument :attributes, type: :array, required: true, desc: "attribute list required"
 
-    class_options :create_model_and_migration => false, :read_only => false, :no_index => false
+    class_options create_model_and_migration: false, read_only: false, no_index: false
 
     def self.next_migration_number dirname
       if ActiveRecord::Base.timestamped_migrations

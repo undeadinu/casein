@@ -3,12 +3,12 @@ require 'securerandom'
 module Casein
   class AdminUsersController < Casein::CaseinController
 
-    before_filter :needs_admin, :except => [:show, :destroy, :update, :update_password]
-    before_filter :needs_admin_or_current_user, :only => [:show, :destroy, :update, :update_password]
+    before_filter :needs_admin, except: [:show, :destroy, :update, :update_password]
+    before_filter :needs_admin_or_current_user, only: [:show, :destroy, :update, :update_password]
  
     def index
       @casein_page_title = "Users"
-      @users = Casein::AdminUser.order(sort_order(:login)).paginate :page => params[:page]
+      @users = Casein::AdminUser.order(sort_order(:login)).paginate page: params[:page]
     end
  
     def new
@@ -28,7 +28,7 @@ module Casein
         redirect_to casein_admin_users_path
       else
         flash.now[:warning] = "There were problems when trying to create a new user"
-        render :action => :new
+        render action: :new
       end
     end
   
@@ -45,14 +45,14 @@ module Casein
         flash[:notice] = @casein_admin_user.name + " has been updated"
       else
         flash.now[:warning] = "There were problems when trying to update this user"
-        render :action => :show
+        render action: :show
         return
       end
       
       if @session_user.is_admin?
         redirect_to casein_admin_users_path
       else
-        redirect_to :controller => :casein, :action => :index
+        redirect_to controller: :casein, action: :index
       end
     end
  
@@ -72,7 +72,7 @@ module Casein
         flash[:warning] = "The current password is incorrect"
       end
       
-      redirect_to :action => :show
+      redirect_to action: :show
     end
  
     def reset_password
@@ -96,7 +96,7 @@ module Casein
         end
       end
 
-      redirect_to :action => :show
+      redirect_to action: :show
     end
  
     def destroy
@@ -113,7 +113,7 @@ module Casein
       def generate_random_password
         random_password = random_string = SecureRandom.hex
         params[:casein_admin_user] = Hash.new if params[:casein_admin_user].blank?
-        params[:casein_admin_user].merge! ({:password => random_password, :password_confirmation => random_password})
+        params[:casein_admin_user].merge! ({ password: random_password, password_confirmation: random_password })
       end
 
       def casein_admin_user_params

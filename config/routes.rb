@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  match "/admin" => redirect("/casein"), :via => :get
+  match "/admin" => redirect("/casein"), via: :get
   
   namespace :casein do
   
@@ -10,11 +10,11 @@ Rails.application.routes.draw do
       end
     end
     
-    resource :admin_user_session, :only => [:new, :create, :destroy]
-    resource :password_reset, :only => [:create, :edit, :update]
+    resource :admin_user_session, only: [:new, :create, :destroy]
+    resource :password_reset, only: [:create, :edit, :update]
         
-    match "/blank" => "casein#blank", :via => :get
-    root :to => "casein#index"
+    match "/blank" => "casein#blank", via: :get
+    root to: "casein#index"
   end
   
 end

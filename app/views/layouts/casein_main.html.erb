@@ -40,15 +40,15 @@
                 <li><%= link_to 'Users', casein_admin_users_path %></li>
               <% end %>
 
-              <%= render :partial => '/casein/layouts/top_navigation' %>
-              <li class="last-item signout"><%= link_to 'Sign out', casein_admin_user_session_path, :method => :delete %></li>
+              <%= render partial: '/casein/layouts/top_navigation' %>
+              <li class="last-item signout"><%= link_to 'Sign out', casein_admin_user_session_path, method: :delete %></li>
             </ul>
           </div>
         </div>
       <% end %>
 
       <div class="container container-navbar-brand">
-        <%= link_to(image_tag(casein_config_logo, :alt => casein_config_website_name), {:controller => :casein}, :class => "navbar-brand") %>   
+        <%= link_to(image_tag(casein_config_logo, alt: casein_config_website_name), { controller: :casein }, class: "navbar-brand") %>   
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="icon-bar"></span>
@@ -61,7 +61,7 @@
       <div class="container">
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <%= render :partial => '/casein/layouts/tab_navigation' %>
+            <%= render partial: '/casein/layouts/tab_navigation' %>
           </ul>
         </div>
       </div>

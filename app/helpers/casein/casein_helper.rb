@@ -53,7 +53,7 @@ module Casein
   	def casein_table_cell_link contents, link, options = {}
 
   	  if options.key? :casein_truncate
-  	    contents = truncate(contents, :length => options[:casein_truncate], :omission => "...")
+  	    contents = truncate(contents, length: options[:casein_truncate], omission: "...")
   	  end
 
     	link_to "#{contents}".html_safe, link, options
@@ -62,7 +62,7 @@ module Casein
     def casein_table_cell_no_link contents, options = {}
 
   	  if options.key? :casein_truncate
-  	    contents = truncate(contents, :length => options[:casein_truncate], :omission => "...")
+  	    contents = truncate(contents, length: options[:casein_truncate], omission: "...")
   	  end
 
     	"<div class='no-link'>#{contents}</div>".html_safe
@@ -100,7 +100,7 @@ module Casein
         icon_to_show_html = "<div class='table-header-icon glyphicon glyphicon-#{icon_to_show}'></div>".html_safe
       end
       sort_dir = params[:d] == 'down' ? 'up' : 'down'
-      link_to_unless(condition, title, request.parameters.merge({:c => column, :d => sort_dir})) + icon_to_show_html
+      link_to_unless(condition, title, request.parameters.merge({c: column, d: sort_dir})) + icon_to_show_html
     end
 
     def casein_yes_no_label value
@@ -180,7 +180,7 @@ module Casein
   	  casein_form_tag_wrapper(form.time_zone_select(attribute, option_tags, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
   	end
 
-    #e.g. casein_collection_select f, f.object, :article, :author_id, Author.all, :id, :name, {:prompt => 'Select author'}
+    #e.g. casein_collection_select f, f.object, :article, :author_id, Author.all, :id, :name, { prompt: 'Select author' }
   	def casein_collection_select form, obj, object_name, attribute, collection, value_method, text_method, options = {}
   		casein_form_tag_wrapper(collection_select(object_name, attribute, collection, value_method, text_method, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
   	end
@@ -279,7 +279,7 @@ module Casein
         new_class += " #{options[:class]}"
       end
 
-      {:class => new_class}
+      { class: new_class }
     end
 
     def options_hash_with_merged_classes options, new_class
@@ -307,10 +307,10 @@ module Casein
 
       if obj && obj.errors[attribute].any?
         html += "<div class='form-group has-error'>"
-    		html += form.label(attribute, "#{human_attribute_name} #{obj.errors[attribute].first}".html_safe, :class => "control-label")
+    		html += form.label(attribute, "#{human_attribute_name} #{obj.errors[attribute].first}".html_safe, class: "control-label")
     	else
         html += "<div class='form-group'>"
-    		html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, :class => "control-label")
+    		html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, class: "control-label")
     	end
 
     	html += "<div class='well'>#{form_tag}</div></div>"

@@ -276,7 +276,7 @@ Casein adds the routes for the scaffolded models to the top of your applicationâ
 
 e.g.
 
-  match ':controller(/:action(/:id(.:format)))', :constraints => Casein::RouteConstraint.new
+  match ':controller(/:action(/:id(.:format)))', constraints: Casein::RouteConstraint.new
 
 ===Default Timezone
 

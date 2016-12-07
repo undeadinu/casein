@@ -1,8 +1,8 @@
 module Casein
   class AdminUserSessionsController < Casein::CaseinController
     
-    skip_before_filter :authorise, :only => [:new, :create]
-    before_filter :requires_no_session_user, :except => [:destroy]
+    skip_before_filter :authorise, only: [:new, :create]
+    before_filter :requires_no_session_user, except: [:destroy]
   
     layout 'casein_auth'
   
@@ -13,9 +13,9 @@ module Casein
     def create
       @admin_user_session = Casein::AdminUserSession.new params[:casein_admin_user_session]
       if @admin_user_session.save
-        redirect_back_or_default :controller => :casein, :action => :index
+        redirect_back_or_default controller: :casein, action: :index
       else
-        render :action => :new
+        render action: :new
       end
     end
   
@@ -28,7 +28,7 @@ module Casein
   
     def requires_no_session_user
       if current_user
-        redirect_to :controller => :casein, :action => :index
+        redirect_to controller: :casein, action: :index
       end
     end
 
