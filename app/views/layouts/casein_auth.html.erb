@@ -5,8 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Welcome to <%= casein_config_website_name %></title>
-    <%= stylesheet_link_tag "casein/login" %>
-    <%= javascript_include_tag "casein/casein" %>
+    <% casein_config_stylesheet_includes.each do |stylesheet| %>
+      <%= stylesheet_link_tag(stylesheet) %>
+    <% end %>
+    <%= stylesheet_link_tag("casein/login") %>
+
+    <% casein_config_javascript_includes.each do |javascript| %>
+      <%= javascript_include_tag(javascript) %>
+    <% end %>
+
     <%= csrf_meta_tag %>
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
