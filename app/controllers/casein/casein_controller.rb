@@ -12,8 +12,8 @@ module Casein
     layout 'casein_main'
    
     helper_method :current_admin_user_session, :current_user
-    before_filter :authorise
-    before_filter :set_time_zone
+    before_action :authorise
+    before_action :set_time_zone
     
     ActionView::Base.field_error_proc = proc { |input, instance| "#{input}".html_safe }
 

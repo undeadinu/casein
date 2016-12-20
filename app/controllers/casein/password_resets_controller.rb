@@ -1,8 +1,8 @@
 module Casein
   class PasswordResetsController < Casein::CaseinController
   
-    skip_before_filter :authorise
-    before_filter :load_user_using_perishable_token, only: [:edit, :update]
+    skip_before_action :authorise
+    before_action :load_user_using_perishable_token, only: [:edit, :update]
 
     layout 'casein_auth'
     
