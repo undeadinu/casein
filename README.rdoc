@@ -23,6 +23,8 @@ Casein 5.2.0 has the following updates:
 
 Version 5.2.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
 
+Thanks to @brchristian and @mkunkel for this release.
+
 ==What’s Was New in 5.1.1
 
 Casein 5.1.1 has the following updates:
