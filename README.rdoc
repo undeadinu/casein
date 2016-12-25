@@ -151,6 +151,10 @@ An ERB partial for adding items to the top navigation.
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to your Casein deployment.
 
+<b>/assets/javascripts/casein/auth_custom.js & /assets/stylesheets/casein/auth_custom.scss</b>
+
+These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to the authentication layout in your Casein deployment.
+
 ==Customising
 
 Once you have the Casein core installed and configured, and have added support for your models with the scaffolding generator, you’ll want to extend it so that it actually has some functionality for your project!

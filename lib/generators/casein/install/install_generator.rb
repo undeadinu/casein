@@ -29,7 +29,9 @@ module Casein
         #blank stylesheets and JavaScript files
   			copy_file "app/assets/stylesheets/casein/custom.scss", "app/assets/stylesheets/casein/custom.scss"
   			copy_file "app/assets/javascripts/casein/custom.js", "app/assets/javascripts/casein/custom.js"
-			
+				copy_file "app/assets/stylesheets/casein/auth_custom.scss", "app/assets/stylesheets/casein/auth_custom.scss"
+				copy_file "app/assets/javascripts/casein/auth_custom.js", "app/assets/javascripts/casein/auth_custom.js"
+
   			#migrations
   			migration_template 'db/migrate/casein_create_admin_users.rb', "db/migrate/casein_create_admin_users.rb"
       end  

@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Welcome to <%= casein_config_website_name %></title>
-    <% casein_config_stylesheet_includes.each do |stylesheet| %>
+    <% casein_config_auth_stylesheet_includes.each do |stylesheet| %>
       <%= stylesheet_link_tag(stylesheet) %>
     <% end %>
 
-    <% casein_config_javascript_includes.each do |javascript| %>
+    <% casein_config_auth_javascript_includes.each do |javascript| %>
       <%= javascript_include_tag(javascript) %>
     <% end %>
 
