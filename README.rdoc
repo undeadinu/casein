@@ -14,14 +14,14 @@ This version of Casein is designed for Ruby on Rails 5.x and Ruby 2.1.x.
 
 Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
 
-==What’s New in 6.0.0
+==What’s New in 5.2.0
 
-Casein 6.0.0 has the following updates:
+Casein 5.2.0 has the following updates:
 
 * Compatible with Rails 5.x
 * Added auth_custom.js and auth_custom.css.scss for customizing JavaScript and CSS in the authentication layout
 
-Version 6.0.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
+Version 5.2.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
 
 ==What’s Was New in 5.1.1
 
