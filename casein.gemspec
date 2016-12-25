@@ -21,10 +21,10 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
 
-  s.add_dependency "will_paginate", ">= 3.1.0"
+  s.add_dependency "will_paginate", ">= 3.1.5"
   s.add_dependency "authlogic", ">= 3.5.0"
   s.add_dependency "scrypt", "= 1.2.1"
-  s.add_dependency "bootstrap-sass", "= 3.3.3"
+  s.add_dependency "bootstrap-sass", "= 3.3.7"
   s.add_dependency "sass-rails", '>= 0'
   s.add_dependency "jquery-rails", '>= 0'
 

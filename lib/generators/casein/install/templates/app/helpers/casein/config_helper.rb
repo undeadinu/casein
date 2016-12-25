@@ -33,12 +33,22 @@ module Casein
   
     # A list of stylesheets to include. Do not remove the core casein/casein, but you can change the load order, if required.
     def casein_config_stylesheet_includes
-      %w[casein/login casein/casein casein/custom]
+      %w[casein/casein casein/custom]
     end
   
     # A list of JavaScript files to include. Do not remove the core casein/casein, but you can change the load order, if required.
     def casein_config_javascript_includes
       %w[casein/casein casein/custom]
+    end
+
+     # A list of stylesheets to include in the authentication layout. Do not remove the core casein/login, but you can change the load order, if required.
+    def casein_config_auth_stylesheet_includes
+      %w[casein/login casein/auth_custom]
+    end
+  
+    # A list of JavaScript files to includein the authentication layout. Do not remove the core casein/casein, but you can change the load order, if required.
+    def casein_config_auth_javascript_includes
+      %w[casein/casein casein/auth_custom]
     end
     
   end

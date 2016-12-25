@@ -13,7 +13,8 @@ namespace :casein do
       admin = Casein::AdminUser.new({ login: 'admin', name: 'Admin', email: ENV['email'], access_level: $CASEIN_USER_ACCESS_LEVEL_ADMIN, password: password, password_confirmation: password })
 
       unless admin.save
-        puts "[Casein] Failed: check that the 'admin' account doesn't already exist."
+        puts "[Casein] Failed. Rails said:"
+        puts admin.errors.full_messages.join("\n")
       else
         puts "[Casein] Created new admin user with username 'admin' and password '#{password}'"
       end

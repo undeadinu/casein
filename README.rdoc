@@ -1,8 +1,6 @@
 =Casein - a lightweight CMS toolkit for Ruby on Rails, based on Bootstrap
 
-** ALL-NEW CASEIN 5.1.1 — featuring new responsive UI based on Bootstrap 3.3! **
-
-Casein is a Rails 4.x gem that provides scaffolding generators and helper functions to quickly create a clean and minimal CRUD interface for your data.
+Casein is a Rails 5.x gem that provides scaffolding generators and helper functions to quickly create a clean and minimal CRUD interface for your data.
 
 It comes with a pre-rolled user-authentication system, supports user-based timezones, and is mobile ready.
 
@@ -12,38 +10,21 @@ Screenshots at: http://www.caseincms.com
 
 ==Requirements
 
-This version of Casein is designed for Ruby on Rails 4.x and Ruby 2.x.
+This version of Casein is designed for Ruby on Rails 5.x and Ruby 2.1.x.
 
-==What’s New in 5.1.1
+Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
 
-Casein 5.1.1 has the following updates:
+==What’s New in 5.2.0
 
-* Fixes for Rails 4.2 compatibility
-* Added new Casein helpers for HTML5 form helpers (see “Changing form elements” below)
-* First steps in building a test suite
-* Switched from Jeweler to Bundler for gem distribution
+Casein 5.2.0 has the following updates:
 
-Version 5.1.1 should be a drop-in replacement for 5.1.0
+* Compatible with Rails 5.x
+* Added auth_custom.js and auth_custom.scss for customizing JavaScript and CSS in the authentication layout
+* Deprecation updates and small improvements
 
-Thanks to @bunnymatic for this release.
+Version 5.2.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
 
-==What Was New in 5.1.0
-
-* Finally updated to Boostrap 3.3 (all bundled Bootstrap files removed in favor of bootstrap-sass gem)
-* Rake task to create admin user now takes an optional password
-* Authlogic version bumped to 3.4.3
-* UI tweaks
-
-Version 5.1.0 should be a drop-in replacement for 5.0.0
-
-==What Was New in 5.0.0
-
-* Now based on Bootstrap 3
-* Complete UI overhaul, now mobile-first
-* Support for strong parameters
-* Support for asset pipeline
-* Rails 4 compatibility fixes
-* Many other tweaks and improvements over Casein 3.x and 4.x
+Thanks to @brchristian and @mkunkel for this release.
 
 ==Installation
 
@@ -51,7 +32,7 @@ Version 5.1.0 should be a drop-in replacement for 5.0.0
 
 — Add the Casein gem to your Gemfile:
 
-  gem 'casein', '~>5.1.1'
+  gem 'casein', '~>5.2.0'
 
 — Then use bundler to install Casein and its dependencies:
 
@@ -150,6 +131,10 @@ An ERB partial for adding items to the top navigation.
 <b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.scss</b>
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to your Casein deployment.
+
+<b>/assets/javascripts/casein/auth_custom.js & /assets/stylesheets/casein/auth_custom.scss</b>
+
+These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to the authentication layout in your Casein deployment.
 
 ==Customising
 
