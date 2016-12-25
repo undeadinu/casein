@@ -19,7 +19,7 @@ Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
 Casein 5.2.0 has the following updates:
 
 * Compatible with Rails 5.x
-* Added auth_custom.js and auth_custom.css.scss for customizing JavaScript and CSS in the authentication layout
+* Added auth_custom.js and auth_custom.scss for customizing JavaScript and CSS in the authentication layout
 
 Version 5.2.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
 
@@ -158,11 +158,11 @@ An ERB partial for the the left navigation tabs. Note that using the scaffolding
 
 An ERB partial for adding items to the top navigation.
 
-<b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.css.scss</b>
+<b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.scss</b>
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to your Casein deployment.
 
-<b>/assets/javascripts/casein/auth_custom.js & /assets/stylesheets/casein/auth_custom.css.scss</b>
+<b>/assets/javascripts/casein/auth_custom.js & /assets/stylesheets/casein/auth_custom.scss</b>
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to the authentication layout in your Casein deployment.
 
