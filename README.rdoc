@@ -1,8 +1,6 @@
 =Casein - a lightweight CMS toolkit for Ruby on Rails, based on Bootstrap
 
-** ALL-NEW CASEIN 5.1.1 — featuring new responsive UI based on Bootstrap 3.3! **
-
-Casein is a Rails 4.x gem that provides scaffolding generators and helper functions to quickly create a clean and minimal CRUD interface for your data.
+Casein is a Rails 5.x gem that provides scaffolding generators and helper functions to quickly create a clean and minimal CRUD interface for your data.
 
 It comes with a pre-rolled user-authentication system, supports user-based timezones, and is mobile ready.
 
@@ -12,9 +10,20 @@ Screenshots at: http://www.caseincms.com
 
 ==Requirements
 
-This version of Casein is designed for Ruby on Rails 4.x and Ruby 2.x.
+This version of Casein is designed for Ruby on Rails 5.x and Ruby 2.1.x.
 
-==What’s New in 5.1.1
+Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
+
+==What’s New in 6.0.0
+
+Casein 6.0.0 has the following updates:
+
+* Compatible with Rails 5.x
+* Added auth_custom.js and auth_custom.css.scss for customizing JavaScript and CSS in the authentication layout
+
+Version 6.0.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
+
+==What’s Was New in 5.1.1
 
 Casein 5.1.1 has the following updates:
 
@@ -147,11 +156,11 @@ An ERB partial for the the left navigation tabs. Note that using the scaffolding
 
 An ERB partial for adding items to the top navigation.
 
-<b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.scss</b>
+<b>/assets/javascripts/casein/custom.js & /assets/stylesheets/casein/custom.css.scss</b>
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to your Casein deployment.
 
-<b>/assets/javascripts/casein/auth_custom.js & /assets/stylesheets/casein/auth_custom.scss</b>
+<b>/assets/javascripts/casein/auth_custom.js & /assets/stylesheets/casein/auth_custom.css.scss</b>
 
 These files are added to your app’s /assets directory. They allow you to add custom JavaScript or CSS to the authentication layout in your Casein deployment.
 
