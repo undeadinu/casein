@@ -32,7 +32,7 @@ Thanks to @brchristian and @mkunkel for this release.
 
 — Add the Casein gem to your Gemfile:
 
-  gem 'casein', '~>5.1.1'
+  gem 'casein', '~>5.2.0'
 
 — Then use bundler to install Casein and its dependencies:
 
