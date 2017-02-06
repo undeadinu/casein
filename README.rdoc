@@ -22,7 +22,7 @@ Casein 5.2.0 has the following updates:
 * Added auth_custom.js and auth_custom.scss for customizing JavaScript and CSS in the authentication layout
 * Deprecation updates and small improvements
 
-Version 5.2.0 should be a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x.
+Version 5.2.0 is almost a drop-in replacement for 5.1.1, but requires Rails 5.x and Ruby 2.1.x. The only other change is the addition of two methods to 'app/helpers/casein/config_helper.rb'. These are 'casein_config_auth_stylesheet_includes' and 'casein_config_auth_javascript_includes'. You can either manually copy them from the template here[https://github.com/russellquinn/casein/blob/master/lib/generators/casein/install/templates/app/helpers/casein/config_helper.rb] or you can run 'rake casein:install' again and press 'd' for difference when you reach the helper file and merge the changes.
 
 Thanks to @brchristian and @mkunkel for this release.
 
