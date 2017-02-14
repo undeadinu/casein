@@ -56,7 +56,7 @@ module Casein
       @reset_user = Casein::AdminUser.find_using_perishable_token params[:token]
       
       unless @reset_user
-        flash[:warning] = "Your account could not be located. Try to copy and paste the URL directly from the email."
+        flash[:warning] = "Your account could not be located. This can happen if you wait more than 10 minutes to click the link or if you select 'Forgotten Password' multiple times, which invalidates all previous reset links."
         redirect_to new_casein_admin_user_session_url
       end
     end
