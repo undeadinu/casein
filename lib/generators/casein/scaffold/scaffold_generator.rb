@@ -18,7 +18,7 @@ module Casein
     end
 
     def generate_files
-      @plural_route = (plural_name != singular_name) ? plural_name : "#{plural_name}_index"
+      @plural_route = plural_name
       @read_only = options[:read_only]
       @no_index = options[:no_index]
 
