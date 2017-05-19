@@ -172,8 +172,12 @@ module Casein
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
     end
 
-  	def casein_select form, obj, attribute, option_tags, options = {}
-  		casein_form_tag_wrapper(form.select(attribute, option_tags, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
+  	def casein_select form, obj, attribute, option_tags, options = {}, html_options = {}
+
+      html_options_to_use = merged_class_hash(options, 'form-control') #legacy support
+      html_options_to_use = options_hash_with_merged_classes(html_options, html_options_to_use[:class])
+      
+  		casein_form_tag_wrapper(form.select(attribute, option_tags, strip_casein_options(options), html_options_to_use), form, obj, attribute, options).html_safe
   	end
 
   	def casein_time_zone_select form, obj, attribute, option_tags, options = {}
