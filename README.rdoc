@@ -10,13 +10,17 @@ Screenshots at: http://www.caseincms.com
 
 ==Requirements
 
-This version of Casein is designed for Ruby on Rails 5.x and Ruby 2.1.x.
+This version of Casein is designed for Ruby on Rails 5.x and Ruby 2.2.x or later.
 
 Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
 
-==What’s New in 5.2.0
+==What’s New in 5.3.0
 
-Casein 5.2.0 has the following updates:
+Casein 5.3.0 has the following updates:
+
+* Support for passing html_options into casein_select (see [here](https://github.com/russellquinn/casein/pull/80))
+
+Casein 5.2.0 had the following updates:
 
 * Compatible with Rails 5.x
 * Added auth_custom.js and auth_custom.scss for customizing JavaScript and CSS in the authentication layout
@@ -32,7 +36,7 @@ Thanks to @brchristian and @mkunkel for this release.
 
 — Add the Casein gem to your Gemfile:
 
-  gem 'casein', '~>5.2.0'
+  gem 'casein', '~>5.3.0'
 
 — Then use bundler to install Casein and its dependencies:
 
@@ -201,7 +205,7 @@ All of the standard Rails form helpers are available, but the Casein versions ar
   casein_check_box_group form, obj, check_boxes = {}
   casein_radio_button form, obj, attribute, tag_value, options = {}
   casein_radio_button_group form, obj, radio_buttons = {}
-  casein_select form, obj, attribute, option_tags, options = {}
+  casein_select form, obj, attribute, option_tags, options = {}, html_options = {}
   casein_time_zone_select form, obj, attribute, option_tags, options = {}
   casein_collection_select form, obj, object_name, attribute, collection, value_method, text_method, options = {}
   casein_date_select form, obj, attribute, options = {}
