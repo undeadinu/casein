@@ -1,6 +1,7 @@
 require "casein"
 require "rails"
 require 'bootstrap-sass'
+require 'jquery-rails'
 
 module Casein
   class Engine < Rails::Engine
