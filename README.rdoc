@@ -18,7 +18,7 @@ Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
 
 Casein 5.3.0 has the following updates:
 
-* Support for passing html_options into casein_select (see [here](https://github.com/russellquinn/casein/pull/80))
+* Support for passing html_options into casein_select (see https://github.com/russellquinn/casein/pull/80)
 * Fixed a bug where jQuery couldn't be found if it wasn't in your main project's Gemfile (for example, when using Rails 5.1.x)
 * Updated the migration templates to include Rails version number and modern syntax
 * Made password-reset error message clearer to explain what the problem might be
