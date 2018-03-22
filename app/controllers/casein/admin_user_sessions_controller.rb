@@ -11,7 +11,7 @@ module Casein
     end
   
     def create
-      @admin_user_session = Casein::AdminUserSession.new casein_admin_user_session_params
+      @admin_user_session = Casein::AdminUserSession.new(casein_admin_user_session_params.to_h)
       if @admin_user_session.save
         redirect_back_or_default controller: :casein, action: :index
       else
