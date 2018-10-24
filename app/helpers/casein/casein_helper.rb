@@ -296,7 +296,7 @@ module Casein
 
     def casein_form_tag_wrapper form_tag, form, obj, attribute, options = {}
       unless options.key? :casein_label
-    		human_attribute_name = attribute.to_s.humanize
+    		human_attribute_name = attribute.to_s.humanize.titleize
       else
         human_attribute_name = options[:casein_label]
       end
