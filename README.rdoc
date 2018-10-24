@@ -14,9 +14,17 @@ This version of Casein is designed for Ruby on Rails 5.x and Ruby 2.2.x or later
 
 Casein 5.1.1.5 was the last gem release compatible with Rails 4.x.
 
-==What’s New in 5.3.1
+==What’s New in 5.3.2
 
-Casein 5.3.1 has the following update:
+Casein 5.3.2 has the following update:
+
+* Relaxes restriction on scrypt gem
+* Uses capybara 3.x for tests
+* Titleizes human attribute names by default ('My Attribute Name', instead of 'My attribute name')
+
+Thanks to @brchristian for this release.
+
+Casein 5.3.1 had the following update:
 
 * Now uses authlogic >= 4.0.0; fixed compatability issues
 
