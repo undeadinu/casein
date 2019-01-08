@@ -23,7 +23,7 @@ module Casein
       @casein_admin_user = Casein::AdminUser.new casein_admin_user_params
 
       if @casein_admin_user.save
-        flash[:notice] = "An email has been sent to " + @casein_admin_user.name + " with the new account details"
+        flash[:notice] = "An email has been sent to #{@casein_admin_user.name} with the new account details"
         redirect_to casein_admin_users_path
       else
         flash.now[:warning] = 'There were problems when trying to create a new user'
@@ -38,10 +38,10 @@ module Casein
 
     def update
       @casein_admin_user = Casein::AdminUser.find params[:id]
-      @casein_page_title = @casein_admin_user.name + ' > Update user'
+      @casein_page_title = "#{@casein_admin_user.name} > Update user"
 
       if @casein_admin_user.update_attributes casein_admin_user_params
-        flash[:notice] = @casein_admin_user.name + ' has been updated'
+        flash[:notice] = "#{@casein_admin_user.name} has been updated"
       else
         flash.now[:warning] = 'There were problems when trying to update this user'
         render action: :show
@@ -57,7 +57,7 @@ module Casein
 
     def update_password
       @casein_admin_user = Casein::AdminUser.find params[:id]
-      @casein_page_title = @casein_admin_user.name + " > Update password"
+      @casein_page_title = "#{@casein_admin_user.name} > Update password"
 
       if @casein_admin_user.valid_password? params[:form_current_password]
         if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
@@ -76,7 +76,7 @@ module Casein
 
     def reset_password
       @casein_admin_user = Casein::AdminUser.find params[:id]
-      @casein_page_title = @casein_admin_user.name + " > Reset password"
+      @casein_page_title = "#{@casein_admin_user.name} > Reset password"
 
       if params[:generate_random_password].blank? && params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
         flash[:warning] = 'New password cannot be blank'
@@ -88,7 +88,7 @@ module Casein
           unless @casein_admin_user.notify_of_new_password
             flash[:notice] = "Your password has been reset"
           else    
-            flash[:notice] = "Password has been reset and " + @casein_admin_user.name + " has been notified by email"
+            flash[:notice] = "Password has been reset and #{@casein_admin_user.name} has been notified by email"
           end
         else
           flash[:warning] = "There were problems when trying to reset this user's password"
@@ -102,7 +102,7 @@ module Casein
       user = Casein::AdminUser.find params[:id]
       if user.is_admin? == false || Casein::AdminUser.has_more_than_one_admin
         user.destroy
-        flash[:notice] = user.name + " has been deleted"
+        flash[:notice] = "#{user.name} has been deleted"
       end
       redirect_to casein_admin_users_path
     end
