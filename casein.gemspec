@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   ]
 
   s.add_dependency "will_paginate", ">= 3.1.5"
-  s.add_dependency "authlogic", ">= 4.0.0", "< 5.0"
+  s.add_dependency "authlogic", "~> 5.0.0"
   s.add_dependency "scrypt", ">= 1.2.1"
   s.add_dependency "bootstrap-sass", "~> 3.4.0"
   s.add_dependency "sassc-rails", '>= 2.0.0'
