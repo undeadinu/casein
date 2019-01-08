@@ -76,7 +76,7 @@ module Casein
     end
 
     def check_time_zone
-      self.time_zone = Rails.configuration.time_zone unless self.time_zone
+      self.time_zone = Rails.configuration.time_zone unless time_zone
     end
 
     def is_admin?
