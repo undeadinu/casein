@@ -22,7 +22,6 @@ module Casein
     end
 
     def casein_generate_page_title
-
       if @casein_page_title.nil?
         return casein_config_website_name
       end
@@ -58,7 +57,6 @@ module Casein
     end
 
     def casein_table_cell_no_link contents, options = {}
-
       if options.key? :casein_truncate
         contents = truncate(contents, length: options[:casein_truncate], omission: '...')
       end
@@ -171,7 +169,6 @@ module Casein
     end
 
     def casein_select form, obj, attribute, option_tags, options = {}, html_options = {}
-
       html_options_to_use = merged_class_hash(options, 'form-control') #legacy support
       html_options_to_use = options_hash_with_merged_classes(html_options, html_options_to_use[:class])
 
