@@ -51,7 +51,7 @@ module Casein
 
     def casein_table_cell_link(contents, link, options = {})
       if options.key? :casein_truncate
-        contents = truncate(contents, length: options[:casein_truncate], omission: "...")
+        contents = truncate(contents, length: options[:casein_truncate], omission: '...')
       end
 
       link_to "#{contents}".html_safe, link, options
@@ -60,7 +60,7 @@ module Casein
     def casein_table_cell_no_link contents, options = {}
 
       if options.key? :casein_truncate
-        contents = truncate(contents, length: options[:casein_truncate], omission: "...")
+        contents = truncate(contents, length: options[:casein_truncate], omission: '...')
       end
 
       "<div class='no-link'>#{contents}</div>".html_safe
@@ -141,7 +141,7 @@ module Casein
     end
 
     def casein_check_box_group form, obj, check_boxes = {}
-      form_tags = ""
+      form_tags = ''
 
       for check_box in check_boxes
         form_tags += casein_check_box form, obj, check_box[0], check_box[1]
@@ -161,7 +161,7 @@ module Casein
     end
 
     def casein_radio_button_group form, obj, radio_buttons = {}
-      form_tags = ""
+      form_tags = ''
 
       for radio_button in radio_buttons
         form_tags += casein_radio_button form, obj, check_box[0], check_box[1], check_box[2]
@@ -309,10 +309,10 @@ module Casein
 
       if obj && obj.errors[attribute].any?
         html += "<div class='form-group has-error'>"
-        html += form.label(attribute, "#{human_attribute_name} #{obj.errors[attribute].first}".html_safe, class: "control-label")
+        html += form.label(attribute, "#{human_attribute_name} #{obj.errors[attribute].first}".html_safe, class: 'control-label')
       else
         html += "<div class='form-group'>"
-        html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, class: "control-label")
+        html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, class: 'control-label')
       end
 
       html += "<div class='well'>#{form_tag}</div></div>"
