@@ -56,7 +56,7 @@ module Casein
       link_to "#{contents}".html_safe, link, options
     end
 
-    def casein_table_cell_no_link contents, options = {}
+    def casein_table_cell_no_link(contents, options = {})
       if options.key? :casein_truncate
         contents = truncate(contents, length: options[:casein_truncate], omission: '...')
       end
@@ -138,7 +138,7 @@ module Casein
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
     end
 
-    def casein_check_box_group form, obj, check_boxes = {}
+    def casein_check_box_group(form, obj, check_boxes = {})
       form_tags = ''
 
       for check_box in check_boxes
@@ -158,7 +158,7 @@ module Casein
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
     end
 
-    def casein_radio_button_group form, obj, radio_buttons = {}
+    def casein_radio_button_group(form, obj, radio_buttons = {})
       form_tags = ''
 
       for radio_button in radio_buttons
@@ -168,7 +168,7 @@ module Casein
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
     end
 
-    def casein_select form, obj, attribute, option_tags, options = {}, html_options = {}
+    def casein_select(form, obj, attribute, option_tags, options = {}, html_options = {})
       html_options_to_use = merged_class_hash(options, 'form-control') #legacy support
       html_options_to_use = options_hash_with_merged_classes(html_options, html_options_to_use[:class])
 
@@ -180,19 +180,19 @@ module Casein
     end
 
     #e.g. casein_collection_select f, f.object, :article, :author_id, Author.all, :id, :name, { prompt: 'Select author' }
-    def casein_collection_select form, obj, object_name, attribute, collection, value_method, text_method, options = {}
+    def casein_collection_select(form, obj, object_name, attribute, collection, value_method, text_method, options = {})
       casein_form_tag_wrapper(collection_select(object_name, attribute, collection, value_method, text_method, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
     end
 
-    def casein_date_select form, obj, attribute, options = {}
+    def casein_date_select(form, obj, attribute, options = {})
       casein_form_tag_wrapper("<div class='casein-date-select'>".html_safe + form.date_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
     end
 
-    def casein_time_select form, obj, attribute, options = {}
+    def casein_time_select(form, obj, attribute, options = {})
       casein_form_tag_wrapper("<div class='casein-time-select'>".html_safe + form.time_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
     end
 
-    def casein_datetime_select form, obj, attribute, options = {}
+    def casein_datetime_select(form, obj, attribute, options = {})
       casein_form_tag_wrapper("<div class='casein-datetime-select'>".html_safe + form.datetime_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
     end
 
@@ -269,11 +269,11 @@ module Casein
 
     protected
 
-    def strip_casein_options options
+    def strip_casein_options(options)
       options.reject { |key, value| key.to_s.include? "casein_" }
     end
 
-    def merged_class_hash options, new_class
+    def merged_class_hash(options, new_class)
       if options.key? :class
         new_class += " #{options[:class]}"
       end
@@ -281,7 +281,7 @@ module Casein
       { class: new_class }
     end
 
-    def options_hash_with_merged_classes options, new_class
+    def options_hash_with_merged_classes(options, new_class)
       if options.key? :class
         new_class += " #{options[:class]}"
       end
@@ -289,7 +289,7 @@ module Casein
       options
     end
 
-    def casein_form_tag_wrapper form_tag, form, obj, attribute, options = {}
+    def casein_form_tag_wrapper(form_tag, form, obj, attribute, options = {})
       unless options.key? :casein_label
         human_attribute_name = attribute.to_s.humanize.titleize
       else
