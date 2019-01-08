@@ -101,17 +101,17 @@ module Casein
 
     def casein_yes_no_label(value)
       if value
-        return "<span class='label label-success'>Yes</span>".html_safe
+        "<span class='label label-success'>Yes</span>".html_safe
       else
-        return "<span class='label label-danger'>No</span>".html_safe
+        "<span class='label label-danger'>No</span>".html_safe
       end
     end
 
     def casein_no_yes_label(value)
       if value
-        return "<span class='label label-danger'>Yes</span>".html_safe
+        "<span class='label label-danger'>Yes</span>".html_safe
       else
-        return "<span class='label label-success'>No</span>".html_safe
+        "<span class='label label-success'>No</span>".html_safe
       end
     end
 
