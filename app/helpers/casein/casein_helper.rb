@@ -179,7 +179,7 @@ module Casein
       casein_form_tag_wrapper(form.time_zone_select(attribute, option_tags, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
     end
 
-    #e.g. casein_collection_select f, f.object, :article, :author_id, Author.all, :id, :name, { prompt: 'Select author' }
+    # e.g. casein_collection_select f, f.object, :article, :author_id, Author.all, :id, :name, { prompt: 'Select author' }
     def casein_collection_select(form, obj, object_name, attribute, collection, value_method, text_method, options = {})
       casein_form_tag_wrapper(collection_select(object_name, attribute, collection, value_method, text_method, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
     end
