@@ -1,4 +1,4 @@
 # use with view tests and helper tests
-class TestActionViewClass < ActionView::Base;
+class TestActionViewClass < ActionView::Base
   include Casein::CaseinHelper
 end
