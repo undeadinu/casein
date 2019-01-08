@@ -87,7 +87,7 @@ module Casein
         if @casein_admin_user.update_attributes casein_admin_user_params
           unless @casein_admin_user.notify_of_new_password
             flash[:notice] = "Your password has been reset"
-          else    
+          else
             flash[:notice] = "Password has been reset and #{@casein_admin_user.name} has been notified by email"
           end
         else
