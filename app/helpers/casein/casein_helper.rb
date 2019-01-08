@@ -174,7 +174,7 @@ module Casein
 
       html_options_to_use = merged_class_hash(options, 'form-control') #legacy support
       html_options_to_use = options_hash_with_merged_classes(html_options, html_options_to_use[:class])
-      
+
       casein_form_tag_wrapper(form.select(attribute, option_tags, strip_casein_options(options), html_options_to_use), form, obj, attribute, options).html_safe
     end
 
