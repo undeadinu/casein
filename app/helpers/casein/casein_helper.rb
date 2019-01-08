@@ -27,22 +27,22 @@ module Casein
         return casein_config_website_name
       end
 
-      casein_config_website_name + " > " + @casein_page_title
+      casein_config_website_name + ' > ' + @casein_page_title
     end
 
     def casein_get_access_level_text level
       case level
       when $CASEIN_USER_ACCESS_LEVEL_ADMIN
-        return "Administrator"
+        'Administrator'
       when $CASEIN_USER_ACCESS_LEVEL_USER
-        return "User"
+        'User'
       else
-        return "Unknown"
+        'Unknown'
       end
     end
 
     def casein_get_access_level_array
-      [["Administrator", $CASEIN_USER_ACCESS_LEVEL_ADMIN], ["User", $CASEIN_USER_ACCESS_LEVEL_USER]]
+      [['Administrator', $CASEIN_USER_ACCESS_LEVEL_ADMIN], ['User', $CASEIN_USER_ACCESS_LEVEL_USER]]
     end
 
     def casein_pagination_details objs
@@ -300,7 +300,7 @@ module Casein
         human_attribute_name = options[:casein_label]
       end
 
-      sublabel = ""
+      sublabel = ''
 
       if options.key? :casein_sublabel
         sublabel = " <small>#{options[:casein_sublabel]}</small>".html_safe

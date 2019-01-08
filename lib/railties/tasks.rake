@@ -3,7 +3,7 @@ require 'securerandom'
 
 namespace :casein do
   namespace :users do
-    desc "Create default admin user"
+    desc 'Create default admin user'
     task create_admin: :environment do
 
       raise "Usage: specify email address, e.g. rake [task] email=mail@caseincms.com [(optional) password=mypassword]" unless ENV.include?("email")
@@ -18,7 +18,7 @@ namespace :casein do
       end
     end
 
-    desc "Remove all users"
+    desc 'Remove all users'
     task remove_all: :environment do
       users = Casein::AdminUser.all
       num_users = users.size

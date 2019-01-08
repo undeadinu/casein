@@ -19,7 +19,7 @@ module Casein
           flash[:notice] = "An email has been sent to " + params[:recover_email] + " with instructions on how to reset your password"
         end
       else
-        flash[:warning] = "There is no user with that email"
+        flash[:warning] = 'There is no user with that email'
       end
 
       redirect_to new_casein_admin_user_session_url
@@ -31,14 +31,14 @@ module Casein
 
     def update
       if params[:casein_admin_user][:password].empty? || params[:casein_admin_user][:password_confirmation].empty?
-        flash.now[:warning] = "A field has been left empty"
+        flash.now[:warning] = 'A field has been left empty'
       else
 
         @reset_user.password = params[:casein_admin_user][:password]
         @reset_user.password_confirmation = params[:casein_admin_user][:password_confirmation]
 
         if @reset_user.save
-          flash[:notice] = "Password successfully updated"
+          flash[:notice] = 'Password successfully updated'
           redirect_to new_casein_admin_user_session_url
           return
         end

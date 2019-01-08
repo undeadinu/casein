@@ -6,7 +6,7 @@ $CASEIN_USER_ACCESS_LEVEL_USER = 10
 module Casein
   class AdminUser < ActiveRecord::Base
     def self.table_name
-      self.to_s.gsub("::", "_").tableize
+      to_s.gsub('::', '_').tableize
     end
 
     acts_as_authentic do |c|

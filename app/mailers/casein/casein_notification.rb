@@ -23,7 +23,7 @@ module Casein
     end
 
     def password_reset_instructions from, casein_admin_user, host
-      ActionMailer::Base.default_url_options[:host] = host.gsub("http://", "")
+      ActionMailer::Base.default_url_options[:host] = host.gsub('http://', '')
       @name = casein_admin_user.name
       @host = host
       @login = casein_admin_user.login

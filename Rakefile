@@ -27,6 +27,6 @@ begin
   require 'rspec/core/rake_task'
   RSpec::Core::RakeTask.new(:spec)
 rescue LoadError => ex
-  puts "RSpec tasks were unavailable"
+  puts 'RSpec tasks were unavailable'
   puts "*** #{ex}"
 end

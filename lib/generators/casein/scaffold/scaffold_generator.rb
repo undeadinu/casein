@@ -4,13 +4,13 @@ module Casein
     include Rails::Generators::Migration
     source_root File.expand_path('../templates', __FILE__)
 
-    argument :attributes, type: :array, required: true, desc: "attribute list required"
+    argument :attributes, type: :array, required: true, desc: 'attribute list required'
 
     class_options create_model_and_migration: false, read_only: false, no_index: false
 
     def self.next_migration_number dirname
       if ActiveRecord::Base.timestamped_migrations
-        Time.now.utc.strftime("%Y%m%d%H%M%S")
+        Time.now.utc.strftime('%Y%m%d%H%M%S')
       else
         "%.3d" % (current_migration_number(dirname) + 1)
       end
@@ -42,9 +42,9 @@ module Casein
 
     # replacements for standard Rails generator route. This one only adds once
     def add_namespace_to_routes
-      puts "   casein     adding namespace to routes.rb"
+      puts '   casein     adding namespace to routes.rb'
       file_to_update = Rails.root + 'config/routes.rb'
-      line_to_add = "namespace :casein do"
+      line_to_add = 'namespace :casein do'
       insert_sentinel = 'Application.routes.draw do'
       if File.read(file_to_update).scan(/(#{Regexp.escape("#{line_to_add}")})/mi).blank?
         gsub_add_once plural_name, file_to_update, "\n#Casein routes\n" + line_to_add + "\nend\n", insert_sentinel
@@ -66,7 +66,7 @@ module Casein
       end
 
       insert_sentinel = 'namespace :casein do'
-      gsub_add_once plural_name, file_to_update, "    " + line_to_add, insert_sentinel
+      gsub_add_once plural_name, file_to_update, '    ' + line_to_add, insert_sentinel
     end
 
     def add_to_navigation
