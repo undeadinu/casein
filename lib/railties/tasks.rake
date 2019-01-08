@@ -2,9 +2,7 @@ require 'authlogic'
 require 'securerandom'
 
 namespace :casein do
-
   namespace :users do
-
     desc "Create default admin user"
     task create_admin: :environment do
 
@@ -27,7 +25,5 @@ namespace :casein do
       users.destroy_all
       puts "[Casein] Removed #{num_users} user(s)"
     end
-
   end
-
 end

@@ -1,6 +1,5 @@
 module Casein
   module CaseinHelper
-
     def casein_get_footer_string include_version = false
       if include_version
         "Running on #{link_to 'Casein', 'http://www.caseincms.com'} #{casein_get_full_version_string}, an open-source project.".html_safe
@@ -9,76 +8,76 @@ module Casein
       end
     end
 
-	  def casein_get_version_info
+    def casein_get_version_info
       Casein::VERSION_HASH
-	  end
+    end
 
-  	def casein_get_full_version_string
+    def casein_get_full_version_string
       "v#{Casein::VERSION}"
-  	end
+    end
 
-  	def casein_get_short_version_string
+    def casein_get_short_version_string
       version_info = casein_get_version_info
-  	  "v#{version_info[:major]}"
-  	end
+      "v#{version_info[:major]}"
+    end
 
-  	def casein_generate_page_title
+    def casein_generate_page_title
 
-  		if @casein_page_title.nil?
-  			return casein_config_website_name
-  		end
+      if @casein_page_title.nil?
+        return casein_config_website_name
+      end
 
-  		casein_config_website_name + " > " + @casein_page_title
-  	end
+      casein_config_website_name + " > " + @casein_page_title
+    end
 
-  	def casein_get_access_level_text level
-  	  case level
+    def casein_get_access_level_text level
+      case level
       when $CASEIN_USER_ACCESS_LEVEL_ADMIN
         return "Administrator"
       when $CASEIN_USER_ACCESS_LEVEL_USER
-  	    return "User"
-  	  else
-  	    return "Unknown"
-  	  end
-  	end
+        return "User"
+      else
+        return "Unknown"
+      end
+    end
 
-  	def casein_get_access_level_array
-  	  [["Administrator", $CASEIN_USER_ACCESS_LEVEL_ADMIN], ["User", $CASEIN_USER_ACCESS_LEVEL_USER]]
-  	end
+    def casein_get_access_level_array
+      [["Administrator", $CASEIN_USER_ACCESS_LEVEL_ADMIN], ["User", $CASEIN_USER_ACCESS_LEVEL_USER]]
+    end
 
     def casein_pagination_details objs
       " <small class='pagination-details'>/ page #{objs.current_page} of #{objs.total_pages}</small>".html_safe if objs.current_page && objs.total_pages > 1
     end
 
-  	def casein_table_cell_link contents, link, options = {}
+    def casein_table_cell_link contents, link, options = {}
 
-  	  if options.key? :casein_truncate
-  	    contents = truncate(contents, length: options[:casein_truncate], omission: "...")
-  	  end
+      if options.key? :casein_truncate
+        contents = truncate(contents, length: options[:casein_truncate], omission: "...")
+      end
 
-    	link_to "#{contents}".html_safe, link, options
+      link_to "#{contents}".html_safe, link, options
     end
 
     def casein_table_cell_no_link contents, options = {}
 
-  	  if options.key? :casein_truncate
-  	    contents = truncate(contents, length: options[:casein_truncate], omission: "...")
-  	  end
+      if options.key? :casein_truncate
+        contents = truncate(contents, length: options[:casein_truncate], omission: "...")
+      end
 
-    	"<div class='no-link'>#{contents}</div>".html_safe
+      "<div class='no-link'>#{contents}</div>".html_safe
     end
 
     def casein_span_icon icon_name
       "<span class='glyphicon glyphicon-#{icon_name}' title='#{icon_name.titleize}'></span>"
     end
 
-  	def casein_show_icon icon_name
-  		"<div class='icon'>#{casein_span_icon icon_name}</div>".html_safe
-  	end
+    def casein_show_icon icon_name
+      "<div class='icon'>#{casein_span_icon icon_name}</div>".html_safe
+    end
 
-  	def casein_show_row_icon icon_name
+    def casein_show_row_icon icon_name
       "<div class='iconRow'>#{casein_span_icon icon_name}</div>".html_safe
-  	end
+    end
 
     def casein_format_date date, format = "%b %d, %Y"
       date.strftime(format)
@@ -119,30 +118,30 @@ module Casein
       end
     end
 
-  	# Styled form tag helpers
+    # Styled form tag helpers
 
-  	def casein_text_field form, obj, attribute, options = {}
-  	  casein_form_tag_wrapper(form.text_field(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
-  	end
+    def casein_text_field form, obj, attribute, options = {}
+      casein_form_tag_wrapper(form.text_field(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
+    end
 
-  	def casein_password_field form, obj, attribute, options = {}
-  		casein_form_tag_wrapper(form.password_field(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
-  	end
+    def casein_password_field form, obj, attribute, options = {}
+      casein_form_tag_wrapper(form.password_field(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
+    end
 
-  	def casein_text_area form, obj, attribute, options = {}
-  	  casein_form_tag_wrapper(form.text_area(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
-  	end
+    def casein_text_area form, obj, attribute, options = {}
+      casein_form_tag_wrapper(form.text_area(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
+    end
 
-  	def casein_text_area_big form, obj, attribute, options = {}
-  	  casein_form_tag_wrapper(form.text_area(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
-  	end
+    def casein_text_area_big form, obj, attribute, options = {}
+      casein_form_tag_wrapper(form.text_area(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
+    end
 
-  	def casein_check_box form, obj, attribute, options = {}
-  	  form_tag = "<div class='check-box'>#{form.check_box(attribute, strip_casein_options(options))}</div>".html_safe
+    def casein_check_box form, obj, attribute, options = {}
+      form_tag = "<div class='check-box'>#{form.check_box(attribute, strip_casein_options(options))}</div>".html_safe
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
-  	end
+    end
 
-  	def casein_check_box_group form, obj, check_boxes = {}
+    def casein_check_box_group form, obj, check_boxes = {}
       form_tags = ""
 
       for check_box in check_boxes
@@ -152,17 +151,17 @@ module Casein
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options)
     end
 
-  	def casein_radio_button form, obj, attribute, tag_value, options = {}
-  	  form_tag = form.radio_button(obj, attribute, tag_value, strip_casein_options(options))
+    def casein_radio_button form, obj, attribute, tag_value, options = {}
+      form_tag = form.radio_button(obj, attribute, tag_value, strip_casein_options(options))
 
-  	  if options.key? :casein_button_label
-  	    form_tag = "<div>" + form_tag + "<span class=\"rcText\">#{options[:casein_button_label]}</span></div>".html_safe
-  	  end
+      if options.key? :casein_button_label
+        form_tag = "<div>" + form_tag + "<span class=\"rcText\">#{options[:casein_button_label]}</span></div>".html_safe
+      end
 
-  	  casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
-  	end
+      casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
+    end
 
-  	def casein_radio_button_group form, obj, radio_buttons = {}
+    def casein_radio_button_group form, obj, radio_buttons = {}
       form_tags = ""
 
       for radio_button in radio_buttons
@@ -172,52 +171,52 @@ module Casein
       casein_form_tag_wrapper(form_tag, form, obj, attribute, options).html_safe
     end
 
-  	def casein_select form, obj, attribute, option_tags, options = {}, html_options = {}
+    def casein_select form, obj, attribute, option_tags, options = {}, html_options = {}
 
       html_options_to_use = merged_class_hash(options, 'form-control') #legacy support
       html_options_to_use = options_hash_with_merged_classes(html_options, html_options_to_use[:class])
       
-  		casein_form_tag_wrapper(form.select(attribute, option_tags, strip_casein_options(options), html_options_to_use), form, obj, attribute, options).html_safe
-  	end
+      casein_form_tag_wrapper(form.select(attribute, option_tags, strip_casein_options(options), html_options_to_use), form, obj, attribute, options).html_safe
+    end
 
-  	def casein_time_zone_select form, obj, attribute, option_tags, options = {}
-  	  casein_form_tag_wrapper(form.time_zone_select(attribute, option_tags, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
-  	end
+    def casein_time_zone_select form, obj, attribute, option_tags, options = {}
+      casein_form_tag_wrapper(form.time_zone_select(attribute, option_tags, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
+    end
 
     #e.g. casein_collection_select f, f.object, :article, :author_id, Author.all, :id, :name, { prompt: 'Select author' }
-  	def casein_collection_select form, obj, object_name, attribute, collection, value_method, text_method, options = {}
-  		casein_form_tag_wrapper(collection_select(object_name, attribute, collection, value_method, text_method, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
-  	end
+    def casein_collection_select form, obj, object_name, attribute, collection, value_method, text_method, options = {}
+      casein_form_tag_wrapper(collection_select(object_name, attribute, collection, value_method, text_method, strip_casein_options(options), merged_class_hash(options, 'form-control')), form, obj, attribute, options).html_safe
+    end
 
-  	def casein_date_select form, obj, attribute, options = {}
-  	  casein_form_tag_wrapper("<div class='casein-date-select'>".html_safe + form.date_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
-  	end
+    def casein_date_select form, obj, attribute, options = {}
+      casein_form_tag_wrapper("<div class='casein-date-select'>".html_safe + form.date_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
+    end
 
-  	def casein_time_select form, obj, attribute, options = {}
-  	  casein_form_tag_wrapper("<div class='casein-time-select'>".html_safe + form.time_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
-  	end
+    def casein_time_select form, obj, attribute, options = {}
+      casein_form_tag_wrapper("<div class='casein-time-select'>".html_safe + form.time_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
+    end
 
-  	def casein_datetime_select form, obj, attribute, options = {}
-  	  casein_form_tag_wrapper("<div class='casein-datetime-select'>".html_safe + form.datetime_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
-  	end
+    def casein_datetime_select form, obj, attribute, options = {}
+      casein_form_tag_wrapper("<div class='casein-datetime-select'>".html_safe + form.datetime_select(attribute, strip_casein_options(options), merged_class_hash(options, 'form-control')) + "</div>".html_safe, form, obj, attribute, options).html_safe
+    end
 
-  	def casein_file_field form, obj, object_name, attribute, options = {}
-  	  class_hash = merged_class_hash(options, 'form-control')
-  	  contents = "<div class='#{class_hash[:class]}'>" + form.file_field(attribute, strip_casein_options(options)) + '</div>'
+    def casein_file_field form, obj, object_name, attribute, options = {}
+      class_hash = merged_class_hash(options, 'form-control')
+      contents = "<div class='#{class_hash[:class]}'>" + form.file_field(attribute, strip_casein_options(options)) + '</div>'
 
       if options.key? :casein_contents_preview
         contents = options[:casein_contents_preview].html_safe + contents.html_safe
       end
 
-  	  casein_form_tag_wrapper(contents, form, obj, attribute, options).html_safe
-  	end
+      casein_form_tag_wrapper(contents, form, obj, attribute, options).html_safe
+    end
 
-  	def casein_hidden_field form, obj, attribute, options = {}
-  	  form.hidden_field(attribute, strip_casein_options(options)).html_safe
-  	end
+    def casein_hidden_field form, obj, attribute, options = {}
+      form.hidden_field(attribute, strip_casein_options(options)).html_safe
+    end
 
     def casein_color_field form, obj, attribute, options = {}
-        casein_form_tag_wrapper(form.color_field(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
+      casein_form_tag_wrapper(form.color_field(attribute, strip_casein_options(options_hash_with_merged_classes(options, 'form-control'))), form, obj, attribute, options).html_safe
     end
 
     def casein_search_field form, obj, attribute, options = {}
@@ -296,7 +295,7 @@ module Casein
 
     def casein_form_tag_wrapper form_tag, form, obj, attribute, options = {}
       unless options.key? :casein_label
-    		human_attribute_name = attribute.to_s.humanize.titleize
+        human_attribute_name = attribute.to_s.humanize.titleize
       else
         human_attribute_name = options[:casein_label]
       end
@@ -307,17 +306,17 @@ module Casein
         sublabel = " <small>#{options[:casein_sublabel]}</small>".html_safe
       end
 
-    	html = ""
+      html = ''
 
       if obj && obj.errors[attribute].any?
         html += "<div class='form-group has-error'>"
-    		html += form.label(attribute, "#{human_attribute_name} #{obj.errors[attribute].first}".html_safe, class: "control-label")
-    	else
+        html += form.label(attribute, "#{human_attribute_name} #{obj.errors[attribute].first}".html_safe, class: "control-label")
+      else
         html += "<div class='form-group'>"
-    		html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, class: "control-label")
-    	end
+        html += form.label(attribute, "#{human_attribute_name}#{sublabel}".html_safe, class: "control-label")
+      end
 
-    	html += "<div class='well'>#{form_tag}</div></div>"
+      html += "<div class='well'>#{form_tag}</div></div>"
     end
   end
 end

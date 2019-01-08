@@ -5,7 +5,6 @@ require 'jquery-rails'
 
 module Casein
   class Engine < Rails::Engine
-    
     initializer "casein.assets.precompile" do |app|
       app.config.assets.precompile += %w(casein/login.css casein/casein.css casein/casein.js casein/html5shiv.js casein/custom.css casein/custom.js casein/auth_custom.css casein/auth_custom.js casein/*.png)
     end
@@ -20,16 +19,15 @@ module Casein
       g.assets false
       g.helper false
     end
-      
   end
-  
+
   class RouteConstraint
 
-     def matches?(request)
-       return false if request.fullpath.include?("/casein")
-       return false if request.fullpath.include?("/admin")
-       true
-     end
+    def matches?(request)
+      return false if request.fullpath.include?("/casein")
+      return false if request.fullpath.include?("/admin")
+      true
+    end
 
    end
 end

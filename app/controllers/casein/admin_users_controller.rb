@@ -10,19 +10,18 @@ module Casein
       @casein_page_title = "Users"
       @users = Casein::AdminUser.order(sort_order(:login)).paginate page: params[:page]
     end
- 
+
     def new
       @casein_page_title = "Add a new user"
-    	@casein_admin_user = Casein::AdminUser.new
-    	@casein_admin_user.time_zone = Rails.configuration.time_zone
+      @casein_admin_user = Casein::AdminUser.new
+      @casein_admin_user.time_zone = Rails.configuration.time_zone
     end
-  
-    def create
 
+    def create
       generate_random_password if params[:generate_random_password]
 
       @casein_admin_user = Casein::AdminUser.new casein_admin_user_params
-    
+
       if @casein_admin_user.save
         flash[:notice] = "An email has been sent to " + @casein_admin_user.name + " with the new account details"
         redirect_to casein_admin_users_path
@@ -31,12 +30,12 @@ module Casein
         render action: :new
       end
     end
-  
+
     def show
-    	@casein_admin_user = Casein::AdminUser.find params[:id]
-    	@casein_page_title = @casein_admin_user.name + " > View user"
+      @casein_admin_user = Casein::AdminUser.find params[:id]
+      @casein_page_title = @casein_admin_user.name + ' > View user'
     end
- 
+
     def update
       @casein_admin_user = Casein::AdminUser.find params[:id]
       @casein_page_title = @casein_admin_user.name + " > Update user"
@@ -48,18 +47,18 @@ module Casein
         render action: :show
         return
       end
-      
+
       if @session_user.is_admin?
         redirect_to casein_admin_users_path
       else
         redirect_to controller: :casein, action: :index
       end
     end
- 
+
     def update_password
       @casein_admin_user = Casein::AdminUser.find params[:id]
       @casein_page_title = @casein_admin_user.name + " > Update password"
-       
+
       if @casein_admin_user.valid_password? params[:form_current_password]
         if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
           flash[:warning] = "New password cannot be blank"
@@ -71,14 +70,14 @@ module Casein
       else
         flash[:warning] = "The current password is incorrect"
       end
-      
+
       redirect_to action: :show
     end
- 
+
     def reset_password
       @casein_admin_user = Casein::AdminUser.find params[:id]
       @casein_page_title = @casein_admin_user.name + " > Reset password"
-       
+
       if params[:generate_random_password].blank? && params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
         flash[:warning] = "New password cannot be blank"
       else
@@ -98,7 +97,7 @@ module Casein
 
       redirect_to action: :show
     end
- 
+
     def destroy
       user = Casein::AdminUser.find params[:id]
       if user.is_admin? == false || Casein::AdminUser.has_more_than_one_admin
@@ -110,15 +109,14 @@ module Casein
 
     private
 
-      def generate_random_password
-        random_password = random_string = SecureRandom.hex
-        params[:casein_admin_user] = Hash.new if params[:casein_admin_user].blank?
-        params[:casein_admin_user].merge! ({ password: random_password, password_confirmation: random_password })
-      end
+    def generate_random_password
+      random_password = random_string = SecureRandom.hex
+      params[:casein_admin_user] = {} if params[:casein_admin_user].blank?
+      params[:casein_admin_user].merge! ({ password: random_password, password_confirmation: random_password })
+    end
 
-      def casein_admin_user_params
-        params.require(:casein_admin_user).permit(:login, :name, :email, :time_zone, :access_level, :password, :password_confirmation)
-      end
- 
+    def casein_admin_user_params
+      params.require(:casein_admin_user).permit(:login, :name, :email, :time_zone, :access_level, :password, :password_confirmation)
+    end
   end
 end

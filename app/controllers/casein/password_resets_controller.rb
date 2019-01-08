@@ -1,11 +1,10 @@
 module Casein
   class PasswordResetsController < Casein::CaseinController
-  
     skip_before_action :authorise
     before_action :load_user_using_perishable_token, only: [:edit, :update]
 
     layout 'casein_auth'
-    
+
     def create
       users = Casein::AdminUser.where(email: params[:recover_email]).all
 
@@ -31,30 +30,28 @@ module Casein
     end
 
     def update
-      
       if params[:casein_admin_user][:password].empty? || params[:casein_admin_user][:password_confirmation].empty?
         flash.now[:warning] = "A field has been left empty"
       else
-      
+
         @reset_user.password = params[:casein_admin_user][:password]
         @reset_user.password_confirmation = params[:casein_admin_user][:password_confirmation]
-      
+
         if @reset_user.save
           flash[:notice] = "Password successfully updated"
           redirect_to new_casein_admin_user_session_url
           return
         end
       end
-      
+
       render action: :edit
     end
 
-  private
-    
+    private
+
     def load_user_using_perishable_token
-      
       @reset_user = Casein::AdminUser.find_using_perishable_token params[:token]
-      
+
       unless @reset_user
         flash[:warning] = "Your account could not be located. This can happen if you wait more than 10 minutes to click the link or if you select 'Forgotten Password' multiple times, which invalidates all previous reset links."
         redirect_to new_casein_admin_user_session_url

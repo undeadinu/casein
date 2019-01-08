@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'rspec/rails'
 
 describe Casein::CaseinHelper, type: :helper do
-
   before do
     allow(subject).to receive("link_to").and_return("LINK_TO")
   end
@@ -33,7 +32,6 @@ describe Casein::CaseinHelper, type: :helper do
   end
 
   describe 'field helpers' do
-
     let(:helper) { TestActionViewClass.new }
     let(:obj) { TestModel.new }
     let(:opts) { {} }
@@ -155,7 +153,5 @@ describe Casein::CaseinHelper, type: :helper do
         expect(field).to have_css('.form-group .well input.form-control')
       end
     end
-
   end
-
 end

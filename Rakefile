@@ -30,4 +30,3 @@ rescue LoadError => ex
   puts "RSpec tasks were unavailable"
   puts "*** #{ex}"
 end
-

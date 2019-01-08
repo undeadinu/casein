@@ -1,7 +1,6 @@
 class CaseinCreateAdminUsers < ActiveRecord::Migration[5.1]
-  
   def change
-    create_table :casein_admin_users do |t|   
+    create_table :casein_admin_users do |t|
       t.string    :login, null: false
       t.string    :name
       t.string    :email
@@ -22,5 +21,4 @@ class CaseinCreateAdminUsers < ActiveRecord::Migration[5.1]
       t.timestamps
     end
   end
-    
 end

@@ -1,5 +1,4 @@
 class CaseinCreateAdminUsers < ActiveRecord::Migration
-  
   def self.up
     create_table :casein_admin_users do |t|
       t.string    :login, null: false
@@ -22,9 +21,8 @@ class CaseinCreateAdminUsers < ActiveRecord::Migration
       t.timestamps
     end
   end
-  
+
   def self.down
     drop_table :casein_admin_users
   end
-  
 end

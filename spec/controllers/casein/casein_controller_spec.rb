@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'rspec/rails'
 
 describe Casein::CaseinController, type: :controller do
-
   describe '#sort_order' do
     before do
       allow(subject).to receive(:params).and_return(params)
@@ -33,5 +32,4 @@ describe Casein::CaseinController, type: :controller do
       end
     end
   end
-  
 end

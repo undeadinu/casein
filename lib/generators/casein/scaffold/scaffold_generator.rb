@@ -1,6 +1,5 @@
 module Casein
   class ScaffoldGenerator < Rails::Generators::NamedBase
-
     include Casein::CaseinHelper
     include Rails::Generators::Migration
     source_root File.expand_path('../templates', __FILE__)
@@ -39,9 +38,9 @@ module Casein
       end
     end
 
-  protected
+    protected
 
-    #replacements for standard Rails generator route. This one only adds once
+    # replacements for standard Rails generator route. This one only adds once
     def add_namespace_to_routes
       puts "   casein     adding namespace to routes.rb"
       file_to_update = Rails.root + 'config/routes.rb'
@@ -96,13 +95,13 @@ module Casein
 
     def field_type(type)
       case type.to_s.to_sym
-        when :integer, :float, :decimal   then :text_field
-        when :date                        then :date_select
-        when :time, :timestamp            then :time_select
-        when :datetime                    then :datetime_select
-        when :string                      then :text_field
-        when :text                        then :text_area
-        when :boolean                     then :check_box
+      when :integer, :float, :decimal   then :text_field
+      when :date                        then :date_select
+      when :time, :timestamp            then :time_select
+      when :datetime                    then :datetime_select
+      when :string                      then :text_field
+      when :text                        then :text_area
+      when :boolean                     then :check_box
       else
         :text_field
       end
