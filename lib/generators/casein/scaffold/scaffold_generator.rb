@@ -8,7 +8,7 @@ module Casein
 
     class_options create_model_and_migration: false, read_only: false, no_index: false
 
-    def self.next_migration_number dirname
+    def self.next_migration_number(dirname)
       if ActiveRecord::Base.timestamped_migrations
         Time.now.utc.strftime('%Y%m%d%H%M%S')
       else
@@ -77,7 +77,7 @@ module Casein
       gsub_add_once plural_name, file_to_update, line_to_add, insert_sentinel
     end
 
-    def gsub_add_once m, file, line, sentinel
+    def gsub_add_once(_m, file, line, sentinel)
       unless options[:pretend]
         gsub_file file, /(#{Regexp.escape("\n#{line}")})/mi do |match|
           ''

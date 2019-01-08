@@ -2,7 +2,7 @@ module Casein
   class CaseinNotification < ActionMailer::Base
     self.prepend_view_path File.join(File.dirname(__FILE__), '..', 'views', 'casein')
 
-    def generate_new_password from, casein_admin_user, host, pass
+    def generate_new_password(from, casein_admin_user, host, pass)
       @name = casein_admin_user.name
       @host = host
       @login = casein_admin_user.login
@@ -12,7 +12,7 @@ module Casein
       mail(to: casein_admin_user.email, from: from, subject: "[#{casein_config_website_name}] New password")
     end
 
-    def new_user_information from, casein_admin_user, host, pass
+    def new_user_information(from, casein_admin_user, host, pass)
       @name = casein_admin_user.name
       @host = host
       @login = casein_admin_user.login
